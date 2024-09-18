@@ -811,8 +811,8 @@ fi
         done
 user=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 domain=$(cat /etc/xray/domain)
-iplim=$(cat /etc/kyt/limit/vmess/ip/$user)
-Quota=$(cat /etc/vmess/$user)
+#iplim=$(cat /etc/kyt/limit/vmess/ip/$user)
+#Quota=$(cat /etc/vmess/$user)
 uuid=$(grep -E "^### " "/etc/vmess/.vmess.db" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
 #Quota=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
 exp=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
@@ -864,75 +864,81 @@ grpc=`cat<<EOF
 EOF`
 cat >/var/www/html/vmess-$user.txt <<-END
 
-◇━━━━━━━━━━━━━━━━━◇
- Lunatic Tunneling 
-◇━━━━━━━━━━━━━━━━━◇
+====================
+BY ARYA NBC
+wa.me/6281931615811
+====================
+
 # Format Vmess WS TLS
 
-- name: Vmess-$user-WS TLS
-  type: vmess
-  server: ${domain}
-  port: 443
-  uuid: ${uuid}
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ${domain}
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: ${domain}
+proxies:
+  - name: Vmess-$user-WS TLS
+    server: bug.com
+    port: 443
+    type: vmess
+    uuid: ${uuid}
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: ${domain}
+    network: ws
+    ws-opts:
+      path: /vmess
+      headers:
+        Host: ${domain}
+    udp: true
 
 # Format Vmess WS Non TLS
 
-- name: Vmess-$user-WS Non TLS
-  type: vmess
-  server: ${domain}
-  port: 80
-  uuid: ${uuid}
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  servername: ${domain}
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: ${domain}
+proxies:
+  - name: Vmess-$user-WS Non TLS
+    server: bug.com
+    port: 80
+    type: vmess
+    uuid: ${uuid}
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    servername: ${domain}
+    network: ws
+    ws-opts:
+      path: /vmess
+      headers:
+        Host: ${domain}
+    udp: true
 
 # Format Vmess gRPC
 
-- name: Vmess-$user-gRPC (SNI)
-  server: ${domain}
-  port: 443
-  type: vmess
-  uuid: ${uuid}
-  alterId: 0
-  cipher: auto
-  network: grpc
-  tls: true
-  servername: ${domain}
-  skip-cert-verify: true
-  grpc-opts:
-    grpc-service-name: vmess-grpc
-
-◇━━━━━━━━━━━━━━━━━◇
+proxies:
+  - name: Vmess-$user-gRPC (SNI)
+    server: ${domain}
+    port: 443
+    type: vmess
+    uuid: ${uuid}
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: bug.com
+    network: grpc
+    grpc-opts:
+      grpc-service-name: vmess-grpc
+    udp: true
+    
+================
  Link Akun Vmess                   
-◇━━━━━━━━━━━━━━━━━◇
+================
 Link TLS         : 
 ${vmesslink1}
-◇━━━━━━━━━━━━━━━━━◇
+================
 Link none TLS    : 
 ${vmesslink2}
-◇━━━━━━━━━━━━━━━━━◇
+================
 Link GRPC        : 
 ${vmesslink3}
-◇━━━━━━━━━━━━━━━━━◇
+================
 
 END
 vmesslink1="vmess://$(echo $asu | base64 -w 0)"
@@ -941,27 +947,20 @@ vmesslink3="vmess://$(echo $grpc | base64 -w 0)"
 
 clear
 echo -e ""
-echo -e "\033[1;93m◇━━━━━━━━━━━━━━━━━◇\033[0m"
+echo -e "\033[0;34m◇━━━━━━━━━━━━━━━━━◇\033[0m"
 echo -e " Xray/Vmess Account "
-echo -e "\033[1;93m◇━━━━━━━━━━━━━━━━━◇\033[0m"
+echo -e "\033[0;34m◇━━━━━━━━━━━━━━━━━◇\033[0m"
 echo -e "Remarks          : ${user}"
 echo -e "Domain           : ${domain}"
-echo -e "User Quota       : ${Quota} GB"
-echo -e "User Ip            : ${iplimit} IP"
-echo -e "Port TLS         : 400-900"
-echo -e "Port none TLS    : 80, 8080, 8081-9999"
+echo -e "Port TLS         : 443, 8443, 2053, 2083, 2096, 2087"
+echo -e "Port none TLS    : 80, 8080, 8880, 2095, 2082"
 echo -e "id               : ${uuid}"
-echo -e "Xray Dns      : ${NS}"
-echo -e "Pubkey        : ${PUB}"
 echo -e "alterId          : 0"
 echo -e "Security         : auto"
 echo -e "Network          : ws"
-echo -e "Path             : /Multi-Path"
-echo -e "Dynamic          : https://bugmu.com/path"
+echo -e "Path             : /vmess"
+#echo -e "Dynamic          : https://bugmu.com/path"
 echo -e "ServiceName      : vmess-grpc"
-#echo -e "Host XrayDNS : ${NS}"
-#echo -e "Location         : $CITY"
-#echo -e "Pub Key          : ${PUB}"
 echo -e "\033[0;34m◇━━━━━━━━━━━━━━━━━◇\033[0m"
 echo -e "Link TLS         : ${vmesslink1}"
 echo -e "\033[0;34m◇━━━━━━━━━━━━━━━━━◇\033[0m"
@@ -975,8 +974,10 @@ echo -e "Aktif Selama     : $masaaktif Hari"
 echo -e "Dibuat Pada      : $tnggl"
 echo -e "Berakhir Pada    : $expe"
 echo -e "\033[0;34m◇━━━━━━━━━━━━━━━━━◇\033[0m"
+echo -e " "
+echo -e "\033[0;32m Sc Arya Blitar ${NC}"
 echo ""
-read -n 1 -s -r -p "Press [ Enter ] to back on menu"
+read -n 1 -s -r -p "Press any key to back on menu"
 menu
 }
 
