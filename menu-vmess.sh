@@ -370,7 +370,7 @@ fi
         done
 user=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 domain=$(cat /etc/xray/domain)
-uuid=$(grep -E "^### " "/etc/vmess/.vmess.db" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
+uuid=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
 exp=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 asu=`cat<<EOF
