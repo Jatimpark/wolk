@@ -370,14 +370,15 @@ fi
         done
 user=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 domain=$(cat /etc/xray/domain)
-uuid=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
+uuid=$(grep -E "^### " "/etc/vmess/.vmess.db" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
+#Quota=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
 exp=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 asu=`cat<<EOF
       {
       "v": "2",
       "ps": "${user}",
-      "add": "bug.com",
+      "add": "${domain}",
       "port": "443",
       "id": "${uuid}",
       "aid": "0",
@@ -392,7 +393,7 @@ ask=`cat<<EOF
       {
       "v": "2",
       "ps": "${user}",
-      "add": "bug.com",
+      "add": "${domain}",
       "port": "80",
       "id": "${uuid}",
       "aid": "0",
@@ -414,53 +415,125 @@ grpc=`cat<<EOF
       "net": "grpc",
       "path": "vmess-grpc",
       "type": "none",
-      "host": "bug.com",
+      "host": "${domain}",
       "tls": "tls"
 }
 EOF`
-vmess_base641=$( base64 -w 0 <<< $vmess_json1)
-vmess_base642=$( base64 -w 0 <<< $vmess_json2)
-vmess_base643=$( base64 -w 0 <<< $vmess_json3)
+cat >/var/www/html/vmess-$user.txt <<-END
+
+◇━━━━━━━━━━━━━━━━━◇
+ Lunatic Tunneling 
+◇━━━━━━━━━━━━━━━━━◇
+# Format Vmess WS TLS
+
+- name: Vmess-$user-WS TLS
+  type: vmess
+  server: ${domain}
+  port: 443
+  uuid: ${uuid}
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ${domain}
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: ${domain}
+
+# Format Vmess WS Non TLS
+
+- name: Vmess-$user-WS Non TLS
+  type: vmess
+  server: ${domain}
+  port: 80
+  uuid: ${uuid}
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  servername: ${domain}
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: ${domain}
+
+# Format Vmess gRPC
+
+- name: Vmess-$user-gRPC (SNI)
+  server: ${domain}
+  port: 443
+  type: vmess
+  uuid: ${uuid}
+  alterId: 0
+  cipher: auto
+  network: grpc
+  tls: true
+  servername: ${domain}
+  skip-cert-verify: true
+  grpc-opts:
+    grpc-service-name: vmess-grpc
+
+◇━━━━━━━━━━━━━━━━━◇
+ Link Akun Vmess                   
+◇━━━━━━━━━━━━━━━━━◇
+Link TLS         : 
+${vmesslink1}
+◇━━━━━━━━━━━━━━━━━◇
+Link none TLS    : 
+${vmesslink2}
+◇━━━━━━━━━━━━━━━━━◇
+Link GRPC        : 
+${vmesslink3}
+◇━━━━━━━━━━━━━━━━━◇
+
+END
 vmesslink1="vmess://$(echo $asu | base64 -w 0)"
 vmesslink2="vmess://$(echo $ask | base64 -w 0)"
 vmesslink3="vmess://$(echo $grpc | base64 -w 0)"
 
-systemctl restart xray > /dev/null 2>&1
-service cron restart > /dev/null 2>&1
-
 clear
-echo -e "\033[0;34m═══════════\033[0;33mXRAY/VMESS\033[0;34m═══════════${NC}"
-echo -e "\033[0;34m════════════════════════════════${NC}"
-echo -e "Remarks       : ${user}"
-echo -e "Expired On    : $exp" 
-echo -e "Domain        : ${domain}" 
-echo -e "Port TLS      : 443, 8443, 2096, 2087" 
-echo -e "Port none TLS : 80, 8080, 8880, 2082" 
-echo -e "Port  GRPC    : 443, 8443, 2096, 2087" 
-echo -e "id            : ${uuid}" 
-echo -e "alterId       : 0" 
-echo -e "Security      : auto" 
-echo -e "Network       : ws" 
-echo -e "Path          : /vmess" 
-#echo -e "Path          : /worryfree" 
-#echo -e "Path          : http://bug/worryfree" 
-#echo -e "Path          : /kuota-habis" 
-echo -e "ServiceName   : vmess-grpc" 
-echo -e "\033[0;34m════════════════════════════════${NC}" 
-echo -e "Link TLS : "
-echo -e "${vmesslink1}" 
-echo -e "\033[0;34m════════════════════════════════${NC} "
-echo -e "Link none TLS : "
-echo -e "${vmesslink2}" 
-echo -e "\033[0;34m════════════════════════════════${NC} "
-echo -e "Link GRPC : "
-echo -e "${vmesslink3}"
-echo -e "\033[0;34m════════════════════════════════${NC}" 
-echo -e "\033[0;32m Sc By Arya Blitar ${NC}" 
-echo "" | tee -a /etc/log-create-user.log
-rm /etc/xray/$user-tls.json > /dev/null 2>&1
-rm /etc/xray/$user-none.json > /dev/null 2>&1
-read -n 1 -s -r -p "Press any key to back on menu"
+echo -e ""
+echo -e "\033[1;93m◇━━━━━━━━━━━━━━━━━◇\033[0m"
+echo -e " Xray/Vmess Account "
+echo -e "\033[1;93m◇━━━━━━━━━━━━━━━━━◇\033[0m"
+echo -e "Remarks          : ${user}"
+echo -e "Domain           : ${domain}"
+echo -e "User Quota       : ${Quota} GB"
+echo -e "User Ip            : ${iplimit} IP"
+echo -e "Port TLS         : 400-900"
+echo -e "Port none TLS    : 80, 8080, 8081-9999"
+echo -e "id               : ${uuid}"
+echo -e "Xray Dns      : ${NS}"
+echo -e "Pubkey        : ${PUB}"
+echo -e "alterId          : 0"
+echo -e "Security         : auto"
+echo -e "Network          : ws"
+echo -e "Path             : /Multi-Path"
+echo -e "Dynamic          : https://bugmu.com/path"
+echo -e "ServiceName      : vmess-grpc"
+#echo -e "Host XrayDNS : ${NS}"
+#echo -e "Location         : $CITY"
+#echo -e "Pub Key          : ${PUB}"
+echo -e "\033[0;34m◇━━━━━━━━━━━━━━━━━◇\033[0m"
+echo -e "Link TLS         : ${vmesslink1}"
+echo -e "\033[0;34m◇━━━━━━━━━━━━━━━━━◇\033[0m"
+echo -e "Link none TLS    : ${vmesslink2}"
+echo -e "\033[0;34m◇━━━━━━━━━━━━━━━━━◇\033[0m"
+echo -e "Link GRPC        : ${vmesslink3}"
+echo -e "\033[0;34m◇━━━━━━━━━━━━━━━━━◇\033[0m"
+echo -e "Format OpenClash : https://${domain}:81/vmess-$user.txt"
+echo -e "\033[0;34m◇━━━━━━━━━━━━━━━━━◇\033[0m"
+echo -e "Aktif Selama     : $masaaktif Hari"
+echo -e "Dibuat Pada      : $tnggl"
+echo -e "Berakhir Pada    : $expe"
+echo -e "\033[0;34m◇━━━━━━━━━━━━━━━━━◇\033[0m"
+echo ""
+read -n 1 -s -r -p "Press [ Enter ] to back on menu"
 menu
 }
 
