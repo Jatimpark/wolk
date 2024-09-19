@@ -342,9 +342,9 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/config.json")
 
 function user-ws(){
 clear
-MYIP=$(wget -qO- ipv4.icanhazip.com);
-NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/config.json")
-        if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
+#MYIP=$(wget -qO- ipv4.icanhazip.com);
+CLIENT_NUMBER=$(grep -c -E "^### " "/etc/xray/config.json")
+        if [[ ${CLIENT_NUMBER} == '0' ]]; then
                 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
                 echo -e "\E[42;1;37m     Check Detail XRAY Vmess     \E[0m"
                 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
