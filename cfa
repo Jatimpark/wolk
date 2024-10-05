@@ -43,55 +43,7 @@ echo "$SUB_DOMAIN" > /etc/xray/domain
 echo "$SUB_DOMAIN" > /etc/v2ray/domain
 echo "$SUB_DOMAIN" > /etc/xray/scdomain
 echo "IP=$SUB_DOMAIN" > /var/lib/kyt/ipvps.conf
-}
-
-function pasang_ssl() {
-    green "Pasang SSL"
-    sleep 1
-    rm -rf /etc/xray/xray.key
-    rm -rf /etc/xray/xray.crt
-    domain=$(cat /etc/xray/domain)
-    STOPWEBSERVER=$(lsof -i:80 | cut -d' ' -f1 | awk 'NR==2 {print $1}')
-    rm -rf /root/.acme.sh
-    mkdir /root/.acme.sh
-    systemctl stop $STOPWEBSERVER
-    systemctl stop nginx
-    systemctl stop haproxy
-    curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
-    chmod +x /root/.acme.sh/acme.sh
-    /root/.acme.sh/acme.sh --upgrade --auto-upgrade
-    /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-    /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
-    ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
-    chmod 777 /etc/xray/xray.key
-    systemctl restart nginx
-    systemctl restart xray
-    systemctl restart haproxy
-}
-function notif_addhost() {
-    green "Notif AddHost Tele"
-    sleep 2
-    CHATID="$CHATID"
-KEY="$KEY"
-TIME="$TIME"
-URL="$URL"
-TEXT="
-<code>◇━━━━━━━━━━━━━━◇</code>
-<b>   ⚠️ADDHOST NOTIF⚠️</b>
-<b>     Add Domain New</b>
-<code>◇━━━━━━━━━━━━━━◇</code>
-<b>IP VPS  :</b> <code>$MYIP </code>
-<b>DOMAIN :</b> <code>$pp</code>
-<code>◇━━━━━━━━━━━━━━◇</code>
-<code>NEW ADD DOMAIN</code>
-"
-curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
-}
-pasang_domain
-pasang_ssl
-notif_addhost
 rm -rf cf
-echo ""
-green "Back to menu in 2 sec ${NC}"
 sleep 2
-menu
+fixcert
+
