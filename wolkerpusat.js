@@ -3,7 +3,7 @@ import { connect } from 'cloudflare:sockets';
 
 // How to generate your own UUID:
 // [Windows] Press "Win + R", input cmd and run:  Powershell -NoExit -Command "[guid]::NewGuid()"
-let userID = 'd342d11e-d424-4583-b36e-524ab1f0afa4';
+let userID = '530b2007-eb1a-46c8-a7dc-7011a3a39248';
 
 const proxyIPs = ['cdn.xn--b6gac.eu.org:443', 'cdn-all.xn--b6gac.eu.org:443', 'workers.cloudflare.cyou:443'];
 
@@ -104,7 +104,7 @@ async function handleDefaultPath(url, request) {
 	newHeaders.set('cf-connecting-ip', '1.2.3.4');
 	newHeaders.set('x-forwarded-for', '1.2.3.4');
 	newHeaders.set('x-real-ip', '1.2.3.4');
-	newHeaders.set('referer', 'https://www.google.com/search?q=edtunnel');
+	newHeaders.set('referer', 'https://www.google.com/search?q=AryaBlitar77');
 
 	const proxyUrl = 'https://' + randomHostname + url.pathname + url.search;
 	const modifiedRequest = new Request(proxyUrl, {
@@ -1148,19 +1148,19 @@ function getConfig(userIDs, hostName) {
 	// HTML Head with CSS and FontAwesome library
 	const htmlHead = `
   <head>
-    <title>EDtunnel: Configuration</title>
+    <title>Blitar77: Jawa Timur</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <meta property='og:site_name' content='EDtunnel: Protocol Configuration' />
+    <meta property='og:site_name' content='AryaBlitar77: Konfigurasi Protokol' />
     <meta property='og:type' content='website' />
-    <meta property='og:title' content='EDtunnel - Protocol Configuration and Subscribe Output' />
-    <meta property='og:description' content='Use Cloudflare Pages and Worker serverless to implement protocol' />
+    <meta property='og:title' content='AryaBlitar77 - Konfigurasi Protokol dan Output Berlangganan' />
+    <meta property='og:description' content='Gunakan Cloudflare Pages dan Worker tanpa server untuk mengimplementasikan protokol' />
     <meta property='og:url' content='https://${hostName}/' />
-    <meta property='og:image' content='https://ipfs.io/ipfs/bafybeigd6i5aavwpr6wvnwuyayklq3omonggta4x2q7kpmgafj357nkcky' />
+    <meta property='og:image' content='https://t.me//AryaBlitar' />
     <meta name='twitter:card' content='summary_large_image' />
-    <meta name='twitter:title' content='EDtunnel - Protocol Configuration and Subscribe Output' />
-    <meta name='twitter:description' content='Use Cloudflare Pages and Worker serverless to implement protocol' />
+    <meta name='twitter:title' content='AryaBlitar77 - Konfigurasi Protokol dan Output Berlangganan' />
+    <meta name='twitter:description' content='Gunakan Cloudflare Pages dan Worker tanpa server untuk mengimplementasikan protokol' />
     <meta name='twitter:url' content='https://${hostName}/' />
-    <meta name='twitter:image' content='https://ipfs.io/ipfs/bafybeigd6i5aavwpr6wvnwuyayklq3omonggta4x2q7kpmgafj357nkcky' />
+    <meta name='twitter:image' content='https://t.me//AryaBlitar' />
     <meta property='og:image:width' content='1500' />
     <meta property='og:image:height' content='1500' />
 
@@ -1311,7 +1311,7 @@ function getConfig(userIDs, hostName) {
 		<li id="sec">..</li>
   	</ul>
 	<br />
-	<p class="animation fw-bold text-danger mt-1"><i style="height: 30px;">VLESS FREE CLOUDFLARE</i></p>
+	<p class="animation fw-bold text-danger mt-1"><i style="height: 30px;">WELCOME TO NBC GROUP<br/>GRATIS VLESS CLOUDFLARE</i></p>
 </div>
   `;
 
@@ -1412,5 +1412,5 @@ function GenSub(ไอดีผู้ใช้_เส้นทาง, ชื่�
 }
 
 const hostnames = [
-	't.me/WongPusattA1',            // Secoo - A Chinese luxury e-commerce platform
+	't.me/AryaBlitar',            // Secoo - A Chinese luxury e-commerce platform
 ];
