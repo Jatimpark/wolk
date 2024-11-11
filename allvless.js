@@ -145,7 +145,7 @@ async function getAllConfigVless(hostName) {
     text-align: center;
     margin: 10px 0 40px;
     font-size: 42px;
-    color: #f39c12; /* Golden green */
+    color: #DC143C; /* Crimson */
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 4px;
@@ -160,7 +160,7 @@ async function getAllConfigVless(hostName) {
 
 .nav-buttons .button {
     background-color: transparent;
-    border: 3px solid #f39c12; /* Golden green */
+    border: 3px solid #DC143C; /* Crimson */
     color: #f39c12;
     padding: 6px 12px;
     font-size: 20px;
@@ -172,7 +172,7 @@ async function getAllConfigVless(hostName) {
 }
 
 .nav-buttons .button:hover {
-    background-color: #f39c12; /* Golden green */
+    background-color: #DC143C; /* Crimson */
     color: #fff;
     transform: scale(1.05);
 }
@@ -253,7 +253,7 @@ async function getAllConfigVless(hostName) {
 
 .button {
     background-color: transparent;
-    border: 2px solid #f39c12; /* Golden green */
+    border: 2px solid #DC143C; /* Crimson */
     color: #f39c12;
     padding: 4px 8px;
     font-size: 12px;
@@ -270,7 +270,7 @@ async function getAllConfigVless(hostName) {
 }
 
 .button:hover {
-    background-color: #f39c12; /* Golden green */
+    background-color: #DC143C; /* Crimson */
     color: #fff;
 }
 
@@ -315,7 +315,7 @@ async function getAllConfigVless(hostName) {
     <div class="container">
         <div class="header"><br>
             <h1>WELCOME TO MY JANDAKU</br>
-            </head>Upload Arya Blitar <br><br>
+            Upload Arya Blitar <br>
             <h1>GRATIS VLESS CLOUDFLARE</h1>
         </div>
         <hr class="config-divider" />
