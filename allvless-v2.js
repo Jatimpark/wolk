@@ -1,22 +1,21 @@
 // worker.js
 import { connect } from "cloudflare:sockets";
 var listProxy = [
-  { path: "/aryapro-vless", proxy: "172.232.239.151:443" },
-  { path: "/aryapro-vless", proxy: "103.133.223.50:443" },
-  { path: "/aryapro-vless", proxy: "103.133.223.51:443" },
-  { path: "/aryapro-vless", proxy: "101.50.0.114:443" },  
-  { path: "/aryapro-vless", proxy: "103.168.146.169:443" },
-  { path: "/aryapro-vless", proxy: "172.232.239.151:443" },
-  { path: "/aryapro-vless", proxy: "43.133.145.156:433" },
-  { path: "/aryapro-vless", proxy: "43.133.145.156:443" },
-  { path: "/aryapro-vless", proxy: "103.181.182.199:443" },
-  { path: "/aryapro-vless", proxy: "188.166.255.195:443" },
-  { path: "/aryapro-vless", proxy: "143.198.213.197:443" },
-  { path: "/aryapro-vless", proxy: "82.197.69.135:443" },
-  { path: "/aryapro-vless", proxy: "62.72.46.14:443" },
-  { path: "/aryapro-vless", proxy: "103.253.24.44:443" },
-  { path: "/aryapro-vless", proxy: "103.253.24.42:443" },
-  //tambahin sendiri
+  { path: "/biznet-id", proxy: "103.93.59.85:443" },
+  { path: "/biznet-id2", proxy: "103.127.96.63:443" },
+  { path: "/biznet-jagoan", proxy: "103.175.219.165:443" },
+  { path: "/nata-id", proxy: "103.142.21.29:443" },  
+  { path: "/ctn-id", proxy: "103.157.116.33:443" },
+  { path: "/ctn-id2", proxy: "103.133.223.50:443" },
+  { path: "/ctn-id3", proxy: "103.157.116.33:443" },
+  { path: "/atha-id", proxy: "81.168.116.33:443" },
+  { path: "/melbi-sgdo", proxy: "91.192.81.174:433" },
+  { path: "/herza-id", proxy: "103.168.146.141:443" },
+  { path: "/herza-id2", proxy: "103.168.146.169:443" },
+  { path: "/pusatmedia-id", proxy: "103.6.207.108:443" },
+  { path: "/contabo-sg", proxy: "82.197.69.135:443" },
+  { path: "/contabo-fr", proxy: "62.72.46.14:443" },
+  //
 ];
 var proxyIP;
 var proxyPort;
