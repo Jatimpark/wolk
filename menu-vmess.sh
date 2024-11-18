@@ -155,7 +155,7 @@ sed -i '/#vmess$/a\### '"$user $exp"'\
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vmessgrpc$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
-*/$timer * * * * root /usr/bin/trialvmess $user $uuid $exp
+*/$timer * * * * cd /usr/bin/trialvmess $user $uuid $exp
 asu=`cat<<EOF
       {
       "v": "2",
