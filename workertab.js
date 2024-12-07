@@ -336,7 +336,7 @@ async function getAllConfigVless(env, hostName, listProxy) {
           function copyToClipboard(text) {
       navigator.clipboard.writeText(text)
         .then(() => {
-          displayAlert("Successfully copied to clipboard!", '#FFD700');
+          displayAlert("Successfully copied to clipboard!", '#00FFFF');
         })
         .catch((err) => {
           displayAlert("Failed to copy to clipboard: " + err, '#cc2222');
