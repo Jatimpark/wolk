@@ -1,29 +1,46 @@
 // worker.js
 import { connect } from "cloudflare:sockets";
 var listProxy = [
-  { path: "/biznet1", proxy: "103.93.59.85:443" },
-  { path: "/biznet2", proxy: "103.127.96.63:443" },
-  { path: "/biznetjgn", proxy: "103.175.219.165:443" },
-  { path: "/global-nata", proxy: "103.142.21.29:443" },  
-  { path: "/global-cloud", proxy: "103.157.116.33:443" },
-  { path: "/global-ggs1", proxy: "81.168.116.33:443" },
-  { path: "/global-melbi", proxy: "91.192.81.174:443" },
-  { path: "/global-herza1", proxy: "103.168.146.141:443" },
-  { path: "/global-herza2", proxy: "103.168.146.169:443" },
-  { path: "/herza", proxy: "103.168.146.169:443" },
-  { path: "/global-ctn", proxy: "103.157.116.33:443" },
-  { path: "/id-pusat-media", proxy: "103.6.207.108:443" },
-  { path: "/id-beon", proxy: "101.50.0.114:443" },
-  { path: "/id-ctn1", proxy: "103.133.223.50:443" },
-  { path: "/fastssh", proxy: "103.253.24.44:433" },
-  { path: "/contabo1", proxy: "82.197.69.135:443" },
-  { path: "/contabo2", proxy: "62.72.46.14:443" },
-  { path: "/akamai", proxy: "172.232.239.151:443" },
-  { path: "/ata-media", proxy: "103.6.207.108:443" },
-  { path: "/ctn", proxy: "103.133.223.51:443" },
-  { path: "/id-tcc", proxy: "43.133.145.156:443" },
-  { path: "/id-chi", proxy: "103.186.1.209:443" },
-  { path: "/id-rumah-web", proxy: "203.194.112.119:443" },
+  { path: "/ID-CTN", proxy: "103.133.223.50:2096" },
+  { path: "/ID-CTN3", proxy: "103.133.223.51:2096" },
+  { path: "/ID-CTN3", proxy: "103.133.223.52:2096" },
+  { path: "/CBN", proxy: "103.6.207.108:8080" },  
+  { path: "/ID-HERZA", proxy: "103.168.146.169:20132" },
+  { path: "/ID-INTER", proxy: "43.133.145.156:53136" },
+  { path: "/ID-IDC1", proxy: "103.186.1.209:8443" },
+  { path: "/OVH-SG1", proxy: "51.79.254.182:443" },
+  { path: "/SG-VUTR1", proxy: "64.176.84.144:81" },
+  { path: "/SG-VULTR2", proxy: "139.180.144.170:666" },
+  { path: "/SG-VULTR3", proxy: "139.180.131.125:10005" },
+  { path: "/SGDO1", proxy: "152.42.172.170:8443" },
+  { path: "/SGDO2", proxy: "143.198.213.197:8443" },
+  { path: "/SGDO3", proxy: "143.198.85.62:49270" },
+  { path: "/SGDO4", proxy: "143.198.85.62:18163" },
+  { path: "/SGDO5", proxy: "139.162.33.248:587" },
+  { path: "/SGDO5", proxy: "188.166.255.195:8443" },
+  { path: "/SGDO6", proxy: "178.128.80.43:443" },
+  { path: "/SGDO7", proxy: "143.198.85.62:41536" },
+  { path: "/SGDO9", proxy: "157.230.193.55:2053" },
+  { path: "/SGDO8", proxy: "128.199.171.100:2053" },
+  { path: "/SG-AMAZON", proxy: "54.251.167.101:443" },
+  { path: "/SG-AMAZON1", proxy: "3.1.94.232:443" },
+  { path: "/SG-UPCLOUD1", proxy: "94.237.75.31:62174" },
+  { path: "/AKAMAI2", proxy: "139.162.48.174:10000" },
+  { path: "/SG-ORACLE1", proxy: "168.138.178.6:19990" },
+  { path: "/SG-ORACLE2", proxy: "168.138.183.48:9090" },
+  { path: "/SG-ORACLE3", proxy: "140.245.61.163:39863" },
+  { path: "/SG-TC1", proxy: "43.156.16.213:31528" },
+  { path: "/SG-EDC", proxy: "38.181.70.7:16240" },
+  { path: "/SG-LASEWEB", proxy: "194.127.193.240:50791" },
+  { path: "/SG-LASEWEB2", proxy: "194.127.193.124:24467" },
+  { path: "/SG-AZURE", proxy: "4.193.111.126:40809" },
+  { path: "/SG-ARYAKA", proxy: "185.114.78.230:443" },
+  { path: "/SG-HONGKONG", proxy: "103.180.161.69:587" },
+  { path: "/SG-HONGKONG1", proxy: "103.180.161.10:587" },
+  { path: "/SG-CONTABO1", proxy: "62.72.46.14:8443" },
+  { path: "/SG-SPEDPAGE", proxy: "194.9.62.132:34646" },
+  { path: "/SG-BELNET", proxy: "194.36.179.17:8443" },
+  { path: "/SG-AKILE", proxy: "185.81.28.95:30503" },
   //tambahin sendiri
 ];
 var proxyIP;
@@ -97,7 +114,7 @@ async function getAllConfigVless(hostName) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Vless | Noir7R | CLoudFlare</title>
+    <title>Vless | AryaBlitar | CLoudFlare</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4C+6PCWJ+8zzHcXQjXGp6n5Yh9rX0x5fOdPaOqO+e2X4R5C1aE/BSqPIG+8y3O6APa8w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="https://raw.githubusercontent.com/Arya-Blitar22/cok/main/babi.png" type="image/png">

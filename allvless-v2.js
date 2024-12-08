@@ -1,21 +1,32 @@
 // worker.js
 import { connect } from "cloudflare:sockets";
 var listProxy = [
-  { path: "/biznet-id", proxy: "103.93.59.85:443" },
-  { path: "/biznet-id2", proxy: "103.127.96.63:443" },
-  { path: "/biznet-jagoan", proxy: "103.175.219.165:443" },
-  { path: "/nata-id", proxy: "103.142.21.29:443" },  
-  { path: "/ctn-id", proxy: "103.157.116.33:443" },
-  { path: "/ctn-id2", proxy: "103.133.223.50:443" },
-  { path: "/ctn-id3", proxy: "103.157.116.33:443" },
-  { path: "/atha-id", proxy: "81.168.116.33:443" },
-  { path: "/melbi-sgdo", proxy: "91.192.81.174:433" },
-  { path: "/herza-id", proxy: "103.168.146.141:443" },
-  { path: "/herza-id2", proxy: "103.168.146.169:443" },
-  { path: "/pusatmedia-id", proxy: "103.6.207.108:443" },
-  { path: "/contabo-sg", proxy: "82.197.69.135:443" },
-  { path: "/contabo-fr", proxy: "62.72.46.14:443" },
-  //
+  { path: "/ID-AKAMAI", proxy: "172.232.239.249:587" },
+  { path: "/ID-AKAMAI2", proxy: "172.232.239.175:587" },
+  { path: "/ID-AKAMAI3", proxy: "172.232.239.134:587" },
+  { path: "/ID-AKAMAI4", proxy: "172.232.239.147:587" },
+  { path: "/ID-AKAMAI5", proxy: "172.232.239.151:587" },
+  { path: "/ID-LINKNET", proxy: "111.95.40.14:32414" },
+  { path: " ID-CLOUD", proxy: "38.60.171.111:587" },
+  { path: "/ID-UCLOUD", proxy: "165.154.48.233:587" },
+  { path: "/CTN1", proxy: "103.133.223.50:2096" },  
+  { path: "/CTN2", proxy: "103.133.223.51:2096" },
+  { path: "/CTN3", proxy: "43.133.145.156:53136" },
+  { path: "/CTN4", proxy: "103.133.223.52:2096" },
+  { path: "/ID-GOGLE1", proxy: "35.219.50.99:443" },
+  { path: "/ID-GOGLE2", proxy: "35.219.15.90:443" },
+  { path: "/ID-PUSATMEDIA", proxy: "103.6.207.108:8080" },  
+  { path: "/ID-HERZA", proxy: "103.168.146.169:20132" },
+  { path: "/ID-BEON", proxy: "101.50.0.114:8443" },
+  { path: "/ID-LINODE", proxy: "172.232.239.151:587" },
+  { path: "/ID-CQ", proxy: "43.133.145.156:53136" },
+  { path: "/ID-RW", proxy: "203.194.112.119:8443" },
+  { path: "/ID-ANZA", proxy: "103.186.1.209:8443" },  
+  { path: "/ID-CAGAN", proxy: "203.194.112.119:2053" },
+  { path: "/ID-CHI", proxy: "103.186.1.209:8443" },
+  { path: "/ID-ALIBABA1", proxy: "8.215.23.33:587" },
+  { path: "/ID-ALIBABA2", proxy: "8.215.23.109:587" },
+  //cxjvjk
 ];
 var proxyIP;
 var proxyPort;
@@ -88,7 +99,7 @@ async function getAllConfigVless(hostName) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Vless | Noir7R | CLoudFlare</title>
+    <title>Vless | AryaBlitar | CLoudFlare</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4C+6PCWJ+8zzHcXQjXGp6n5Yh9rX0x5fOdPaOqO+e2X4R5C1aE/BSqPIG+8y3O6APa8w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="https://raw.githubusercontent.com/Arya-Blitar22/cok/main/babi.png" type="image/png">
