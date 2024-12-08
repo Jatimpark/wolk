@@ -86,7 +86,7 @@ async function getAllConfigVless(env, hostName, listProxy) {
       <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Vless | AFRCloud | CloudFlare</title>
+    <title>Vless | AryaBlitar | CloudFlare</title>
     <meta name="description" content="Akun Vless Gratis.">
     <meta name="keywords" content="AFRCloud, Vless Gratis, Free Vless, Vless CF, Trojan CF, Cloudflare">
     <meta name="author" content="AFRCloud">
