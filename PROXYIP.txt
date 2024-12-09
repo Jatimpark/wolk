@@ -13,6 +13,7 @@
 172.232.239.147,587,ID,Akamai Technologies  Inc
 43.133.145.156,53136,ID,Shenzhen Tencent Computer Systems Company Limited
 103.168.146.169,20132,ID,Pt Herza Digital Indonesia
+206.237.98.76,587,ID,Pt Herza Digital Indonesia
 20.198.241.32,2053,SG,Microsoft Corporation
 51.79.158.126,443,SG,OVH SAS
 139.180.144.170:666,SG,The Constant Company  LLC
@@ -71,7 +72,6 @@
 146.190.111.165,443,SG,Digitalocean  LLC
 45.77.36.40,443,SG,The Constant Company  LLC
 143.198.213.197,443,SG,Digitalocean  LLC
-47.236.157.249,587,SG,Alibaba us Technology Co   Ltd
 119.81.201.154,9089,SG,Softlayer Technologies Inc
 51.79.254.182,443,SG,OVH SAS
 35.219.15.90,443,ID,Google LLC

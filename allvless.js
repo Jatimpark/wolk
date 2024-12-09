@@ -4,10 +4,18 @@ var listProxy = [
   { path: "/ID-CTN", proxy: "103.133.223.50:2096" },
   { path: "/ID-CTN3", proxy: "103.133.223.51:2096" },
   { path: "/ID-CTN3", proxy: "103.133.223.52:2096" },
+  { path: "/ID-AKAMAI", proxy: "172.232.239.249:587" },
+  { path: "/ID-AKAMAI2", proxy: "172.232.239.175:587" },
+  { path: "/ID-AKAMAI3", proxy: "172.232.239.134:587" },
+  { path: "/ID-AKAMAI4", proxy: "172.232.239.147:587" },
+  { path: "/ID-AKAMAI5", proxy: "172.232.239.151:587" },
   { path: "/CBN", proxy: "103.6.207.108:8080" },  
   { path: "/ID-HERZA", proxy: "103.168.146.169:20132" },
   { path: "/ID-INTER", proxy: "43.133.145.156:53136" },
   { path: "/ID-IDC1", proxy: "103.186.1.209:8443" },
+  { path: "/ID-LINKNET", proxy: "111.95.40.14:32414" },
+  { path: "/ID-GOGLE1", proxy: "35.219.50.99:443" },
+  { path: "/ID-GOGLE2", proxy: "35.219.15.90:443" },
   { path: "/OVH-SG1", proxy: "51.79.254.182:443" },
   { path: "/SG-VUTR1", proxy: "64.176.84.144:81" },
   { path: "/SG-VULTR2", proxy: "139.180.144.170:666" },
@@ -162,7 +170,7 @@ async function getAllConfigVless(hostName) {
     text-align: center;
     margin: 10px 0 40px;
     font-size: 42px;
-    color: #DC143C; /* Crimson */
+    color: #00FF00; /* Crimson */
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 4px;
@@ -177,7 +185,7 @@ async function getAllConfigVless(hostName) {
 
 .nav-buttons .button {
     background-color: transparent;
-    border: 3px solid #DC143C; /* Crimson */
+    border: 3px solid #00FF00; /* Crimson */
     color: #f39c12;
     padding: 6px 12px;
     font-size: 20px;
@@ -189,7 +197,7 @@ async function getAllConfigVless(hostName) {
 }
 
 .nav-buttons .button:hover {
-    background-color: #DC143C; /* Crimson */
+    background-color: #00FF00; /* Crimson */
     color: #fff;
     transform: scale(1.05);
 }
@@ -270,7 +278,7 @@ async function getAllConfigVless(hostName) {
 
 .button {
     background-color: transparent;
-    border: 2px solid #DC143C; /* Crimson */
+    border: 2px solid #00FF00; /* Crimson */
     color: #f39c12;
     padding: 4px 8px;
     font-size: 12px;
@@ -287,7 +295,7 @@ async function getAllConfigVless(hostName) {
 }
 
 .button:hover {
-    background-color: #DC143C; /* Crimson */
+    background-color: #00FF00; /* Crimson */
     color: #fff;
 }
 
@@ -331,8 +339,8 @@ async function getAllConfigVless(hostName) {
     <div class="overlay"></div>
     <div class="container">
         <div class="header"><br>
-            <h1>WELCOME TO MY JANDAKU</br>
-            Upload Arya Blitar <br>
+            <h1>WELCOME TO NBC GROUP</br>
+            Upload Arya Blitar <br>6281931615811<br>
             <h1>GRATIS VLESS CLOUDFLARE</h1>
         </div>
         <hr class="config-divider" />
