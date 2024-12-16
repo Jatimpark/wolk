@@ -87,4 +87,3 @@
 139.180.215.77,57878,Active ,SGP VULTR
 185.81.28.95,30503, Active ,Akile LTD
 185.126.80.215,25565, Active ,Akile LTD
-101.44.163.253,21578, Active ,Huawei International Pte LTD
