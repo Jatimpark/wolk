@@ -1,12 +1,12 @@
 import { connect } from "cloudflare:sockets";
 
 // Variables
-const rootDomain = "cf.aryapro.my.id"; // Ganti dengan domain utama kalian
+const rootDomain = "arya7.ggff.net"; // Ganti dengan domain utama kalian
 const serviceName = "arya"; // Ganti dengan nama workers kalian
-const apiKey = "58a5f22ed99a804f53a5a9989bb9075a7c155"; // Ganti dengan Global API key kalian (https://dash.cloudflare.com/profile/api-tokens)
-const apiEmail = "Blitar77@outlook.co.id"; // Ganti dengan email yang kalian gunakan
-const accountID = "3aa7e63ac675529e5e08a741248e4e39"; // Ganti dengan Account ID kalian (https://dash.cloudflare.com -> Klik domain yang kalian gunakan)
-const zoneID = "42229b06b241254dafba88a156bff98f"; // Ganti dengan Zone ID kalian (https://dash.cloudflare.com -> Klik domain yang kalian gunakan)
+const apiKey = "1471459a07773083a5bffdd7ff25de71ec570"; // Ganti dengan Global API key kalian (https://dash.cloudflare.com/profile/api-tokens)
+const apiEmail = "Setyaaries9@gmail.com"; // Ganti dengan email yang kalian gunakan
+const accountID = "6031ef9e7cd442330b0a1ea688c184f5"; // Ganti dengan Account ID kalian (https://dash.cloudflare.com -> Klik domain yang kalian gunakan)
+const zoneID = "41ca59a34fe6753b305a6556b3de878d"; // Ganti dengan Zone ID kalian (https://dash.cloudflare.com -> Klik domain yang kalian gunakan)
 let isApiReady = false;
 let proxyIP = "";
 let cachedProxyList = [];
@@ -94,7 +94,7 @@ function getAllConfig(request, hostName, proxyList, page = 0) {
 
     // Build HTML
     const document = new Document(request);
-    document.setTitle("Free Wolker Vless, Trojan, Sadowsoack <br><span class='text-blue-500 font-semibold'>Upload Arya Blitar Nbc</span>");
+    document.setTitle("<span class='text-blue-500 font-semibold'>Free Wolker Vless, Trojan, shadowsocks<br> Support Wc <br><span class='text-green-500 font-semibold'>Upload Arya Blitar Nbc<br>6281931615811</span>");
     document.addInfo(`Total: ${proxyList.length}`);
     document.addInfo(`Page: ${page}/${Math.floor(proxyList.length / PROXY_PER_PAGE)}`);
 
