@@ -15,6 +15,8 @@
 43.133.145.156,53136,ID,Shenzhen Tencent Computer Systems Company Limited
 103.168.146.169,20132,ID,Pt Herza Digital Indonesia
 206.237.98.76,587,ID,Pt Herza Digital Indonesia
+35.219.15.90,443,ID,Google LLC
+35.219.50.99,443,ID,Google LLC
 20.198.241.32,2053,SG,Microsoft Corporation
 51.79.158.126,443,SG,OVH SAS
 139.180.144.170:666,SG,The Constant Company  LLC
@@ -74,8 +76,6 @@
 143.198.213.197,443,SG,Digitalocean  LLC
 119.81.201.154,9089,SG,Softlayer Technologies Inc
 51.79.254.182,443,SG,OVH SAS
-35.219.15.90,443,ID,Google LLC
-35.219.50.99,443,ID,Google LLC
 119.81.201.154,9089,SG,Softlayer Technologies Inc
 143.42.68.97,17055,SG,Akamai Technologies  Inc
 103.40.11.26,587,SG,Hong Kong Megalayer Technology Co  limited
